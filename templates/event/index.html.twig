@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{# {% block body %}
+    <h1>Event index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="4">Heure</th>
+                <th colspan="5">Description</th>
+                <th colspan="1">Ordre</th>
+                <th colspan="2">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td colspan="4">{{ event.hour }}</td>
+                <td colspan="5">{{ event.description }}</td>
+                <td colspan="1">{{ event.eventOrder }}</td>
+                <td colspan="2">
+                    <a href="{{ path('app_event_edit', {'id': event.id}) }}">éditer</a>
+                    <a href="{{ path('app_event_delete', {'id': event.id}) }}">supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_event_new') }}">Create new</a>
+{% endblock %} #}
+{# extendedProps: {
+                    commentaire: '{{ event.description }}'
+                }, #}
+                {# deleteUrl: "{{ path('app_event_delete', {'id': event.id})|e('js') }}"
+                <a href="${arg.event.extendedProps.deleteUrl}">supprimer</a><br /> #}
+{% block body %}
+<a href="{{ path('app_event_new') }}">Créer un événement</a>
+<div id="calendar"></div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    let calendarEl = document.getElementById('calendar');
+
+    let calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'fr',
+        events: [
+            {% for event in events %}
+            {
+                
+                title: 'test',
+                start: '{{ event.day|date('Y-m-d H:i:s') }}',
+                extendedProps: {
+                    description: '{{ event.description|e("js") }}',
+                    hour: '{{ event.hour|e("js") }}',
+                    id: '{{ event.id|e("js") }}',
+                    editUrl: "{{ path('app_event_edit', {'id': event.id})|e('js') }}",
+                    
+                },
+                
+            },
+            {% endfor %}
+        ],
+        eventContent: function(arg) {
+    return {
+        html: `
+        <div style="border: 1px solid #000000; width: 100%; text-align: center;">
+            <p>${arg.event.extendedProps.hour || ''}</p>
+            <p>${arg.event.extendedProps.description || ''}</p>
+            <a href="${arg.event.extendedProps.editUrl}">éditer</a>
+        </div>
+        `
+    };
+}
+    });
+
+    calendar.render();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Event{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouvel événement</h1>
+
+    {{ include('event/_form.html.twig') }}
+
+    <a href="{{ path('app_event_index') }}">retour à l'agenda</a>
+   
+{% endblock %}
+{% block script %}
+<script>
+ $(document).ready(function() {
+        // you may need to change this code if you are not using Bootstrap Datepicker
+        $('.js-datepicker').datepicker({
+            format: 'dd-mm-yyyy',
+            autoclose: true
+        });
+    });
+    </script>
+{% endblock %}
