@@ -1,13 +1,14 @@
 <div class="container">
 <div class="row justify-content-center">
-            <div class="text-center col-12 col-sm-10 col-md-6 col-lg-4">
+            <div class="text-center col-12 col-sm-10">
         {{ form_start(form) }}
             {# {{ form_label(form.day, null, {'label_attr': {'class': 'd-block text-center'}}) }} #}
             {# {{ form_label(form.day, null, {'label_attr': {'style': 'display:block; text-align:center;'}}) }} #}
             {{ form_label(form.day) }}
             <br />
-            {{ form_widget(form.day, {
-    'attr': {'class': 'form-control form-control-lg fz-5'}})  }}
+            {# {{ form_widget(form.day, {
+    'attr': {'class': 'form-control form-control-lg fz-5'}})  }} #}
+    {{ form_widget(form.day) }}
             <br />
             {{ form_label(form.hour) }}
             <br />
