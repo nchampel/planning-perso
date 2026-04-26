@@ -41,7 +41,7 @@
                 {# deleteUrl: "{{ path('app_event_delete', {'id': event.id})|e('js') }}"
                 <a href="${arg.event.extendedProps.deleteUrl}">supprimer</a><br /> #}
 {% block body %}
-<p class="text-center mt-4"><a href="{{ path('app_event_new') }}" class="btn btn-primary btn-lg">Créer un événement</a></p>
+<p class="text-center mt-4"><a href="{{ path('app_event_new') }}" class="btn btn-primary btn-lg fz-5">Créer un événement</a></p>
 <div id="calendar"></div>
 
 {% endblock %}
@@ -74,13 +74,16 @@ document.addEventListener('DOMContentLoaded', function () {
         eventContent: function(arg) {
     return {
         html: `
-        <div style="border: 1px solid #000000; width: 100%; text-align: center;">
-            <p>${arg.event.extendedProps.hour || ''}</p>
+        <div style="border: 1px solid #2ba7c2; width: 100%; text-align: center; color: black;">
+            <p style="color: green;">${arg.event.extendedProps.hour || ''}</p>
             <p>${arg.event.extendedProps.description || ''}</p>
-            <a href="${arg.event.extendedProps.editUrl}">éditer</a>
         </div>
         `
     };
+        }
+    ,
+    eventClick: function(info) {
+    window.location.href = info.event.extendedProps.editUrl;
 }
     });
 

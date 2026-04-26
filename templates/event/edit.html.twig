@@ -3,7 +3,7 @@
 {% block title %}Edit Event{% endblock %}
 
 {% block body %}
-<div class="row d-flex flex-column align-items-center justify-content-center">
+<div class="row d-flex flex-column align-items-center justify-content-center fz-5">
     <h1>éditer l'événement</h1>
     <br />
     {{ include('event/_form.html.twig', {'button_label': 'MAJ'}) }}
@@ -11,7 +11,7 @@
     <div class="mb-3">
     {{ include('event/_delete_form.html.twig') }}
     </div>
-        <a href="{{ path('app_event_index') }}" class="btn btn-secondary btn-lg">retour à l'agenda</a>
+        <a href="{{ path('app_event_index') }}" class="btn btn-secondary btn-lg fz-5">retour à l'agenda</a>
     <script>
     $(document).ready(function() {
         // you may need to change this code if you are not using Bootstrap Datepicker

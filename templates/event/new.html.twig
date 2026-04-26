@@ -3,14 +3,14 @@
 {% block title %}New Event{% endblock %}
 
 {% block body %}
-<div class="row d-flex flex-column align-items-center justify-content-center">
+<div class="row d-flex flex-column align-items-center justify-content-center fz-5">
 {# <div class="row justify-content-center"> #}
     <h1>Créer un nouvel événement</h1>
     <br />
 {# <div class="mb-3"> #}
     {{ include('event/_form.html.twig') }}
     {# </div> #}
-        <a href="{{ path('app_event_index') }}" class="btn btn-secondary btn-lg">retour à l'agenda</a>
+        <a href="{{ path('app_event_index') }}" class="btn btn-secondary btn-lg fz-5">retour à l'agenda</a>
 </div>
 {% endblock %}
 {% block script %}
