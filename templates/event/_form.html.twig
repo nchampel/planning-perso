@@ -1,27 +1,33 @@
+<div class="container">
 <div class="row justify-content-center">
-            <div class="text-center">
+            <div class="text-center col-12 col-sm-10 col-md-6 col-lg-4">
         {{ form_start(form) }}
             {# {{ form_label(form.day, null, {'label_attr': {'class': 'd-block text-center'}}) }} #}
             {# {{ form_label(form.day, null, {'label_attr': {'style': 'display:block; text-align:center;'}}) }} #}
             {{ form_label(form.day) }}
             <br />
-            {{ form_widget(form.day) }}
+            {{ form_widget(form.day, {
+    'attr': {'class': 'form-control form-control-lg'}})  }}
             <br />
             {{ form_label(form.hour) }}
             <br />
-            {{ form_widget(form.hour) }}
+            {{ form_widget(form.hour, {
+    'attr': {'class': 'form-control form-control-lg'}}) }}
             <br />
             {{ form_label(form.description) }}
             <br />
-            {{ form_widget(form.description) }}
+            {{ form_widget(form.description, {
+    'attr': {'class': 'form-control form-control-lg'}}) }}
             <br />
             {{ form_label(form.eventOrder) }}
             <br />
-            {{ form_widget(form.eventOrder) }}
+            {{ form_widget(form.eventOrder, {
+    'attr': {'class': 'form-control form-control-lg'}}) }}
             <p class="mt-4"><button class="btn btn-primary btn-lg">{{ button_label|default('Créer') }}</button></p>
         {{ form_end(form) }}
 
 
+    </div>
     </div>
     </div>
 
