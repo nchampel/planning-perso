@@ -1,4 +1,28 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Créer') }}</button>
-{{ form_end(form) }}
+<div class="row justify-content-center">
+            <div class="text-center">
+        {{ form_start(form) }}
+            {# {{ form_label(form.day, null, {'label_attr': {'class': 'd-block text-center'}}) }} #}
+            {# {{ form_label(form.day, null, {'label_attr': {'style': 'display:block; text-align:center;'}}) }} #}
+            {{ form_label(form.day) }}
+            <br />
+            {{ form_widget(form.day) }}
+            <br />
+            {{ form_label(form.hour) }}
+            <br />
+            {{ form_widget(form.hour) }}
+            <br />
+            {{ form_label(form.description) }}
+            <br />
+            {{ form_widget(form.description) }}
+            <br />
+            {{ form_label(form.eventOrder) }}
+            <br />
+            {{ form_widget(form.eventOrder) }}
+            <p class="mt-4"><button class="btn btn-primary btn-lg">{{ button_label|default('Créer') }}</button></p>
+        {{ form_end(form) }}
+
+
+    </div>
+    </div>
+
+

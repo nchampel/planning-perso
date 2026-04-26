@@ -41,7 +41,7 @@
                 {# deleteUrl: "{{ path('app_event_delete', {'id': event.id})|e('js') }}"
                 <a href="${arg.event.extendedProps.deleteUrl}">supprimer</a><br /> #}
 {% block body %}
-<a href="{{ path('app_event_new') }}">Créer un événement</a>
+<p class="text-center mt-4"><a href="{{ path('app_event_new') }}" class="btn btn-primary btn-lg">Créer un événement</a></p>
 <div id="calendar"></div>
 
 {% endblock %}
