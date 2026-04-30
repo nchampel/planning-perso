@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         html: `
         <div style="border: 1px solid #2ba7c2; width: 100%; text-align: center; color: black;">
             <p style="color: green;">${arg.event.extendedProps.hour || ''}</p>
-            <p>${arg.event.extendedProps.description || ''}</p>
+            <p class="wrap">${arg.event.extendedProps.description || ''}</p>
         </div>
         `
     };
